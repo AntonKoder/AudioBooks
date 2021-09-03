@@ -1,0 +1,9 @@
+package com.a4nt0n64r.audiobooks.models.ui
+
+data class BookUI(
+    val name: String,
+    val author: String,
+    val imageUrl: String,
+    val audioUrl: String,
+    val duration: Int
+)
