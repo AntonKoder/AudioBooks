@@ -1,13 +1,16 @@
 package com.a4nt0n64r.audiobooks.di.modules
 
 import com.a4nt0n64r.audiobooks.BuildConfig
+import com.a4nt0n64r.audiobooks.di.dependencies.DataManager
 import com.a4nt0n64r.audiobooks.di.dependencies.NetworkRepoImpl
 import com.a4nt0n64r.audiobooks.repository.api.ApiService
 import com.a4nt0n64r.audiobooks.repository.api.NetworkRepository
+import com.a4nt0n64r.audiobooks.repository.realm.DatabaseImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
+import io.realm.Realm
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -54,5 +57,15 @@ class NetworkModule {
     @Provides
     fun provideNetworkRepositoryImpl(apiService: ApiService): NetworkRepository {
         return NetworkRepoImpl(apiService)
+    }
+
+    @Provides
+    fun provideDataManager(database: DatabaseImpl, networkRepository: NetworkRepository): DataManager {
+        return DataManager(database, networkRepository)
+    }
+
+    @Provides
+    fun provideDataBase(): DatabaseImpl {
+        return DatabaseImpl(Realm.getDefaultInstance())
     }
 }
