@@ -10,5 +10,5 @@ open class BookDB(
     var author: String? = null,
     var imageUrl: String? = null,
     var audioUrl: String? = null,
-    var duration: Int? = null,
+    var duration: Int? = null
 ) : RealmObject()
