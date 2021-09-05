@@ -25,6 +25,6 @@ class PlayerFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        TODO("init VM")
+//        TODO("init VM")
     }
 }

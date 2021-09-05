@@ -14,7 +14,7 @@ android {
     defaultConfig {
         viewBinding.enabled = true
         applicationId "com.a4nt0n64r.audiobooks"
-        minSdk 19
+        minSdk 21
         targetSdk 31
         versionCode 1
         versionName "1.0"

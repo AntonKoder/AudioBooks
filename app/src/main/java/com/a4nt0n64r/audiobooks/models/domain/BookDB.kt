@@ -6,9 +6,9 @@ import io.realm.annotations.PrimaryKey
 open class BookDB(
     @PrimaryKey
     var id: Int? = null,
-    val name: String,
-    val author: String,
-    val imageUrl: String,
-    val audioUrl: String,
-    val duration: Int
+    var name: String? = null,
+    var author: String? = null,
+    var imageUrl: String? = null,
+    var audioUrl: String? = null,
+    var duration: Int? = null,
 ) : RealmObject()
