@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/previous_40dp.xml" value="0.22777777777777777" />
         <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/activity_main.xml" value="0.15462962962962962" />
-        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/list_fragment.xml" value="0.14375" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/book_item.xml" value="0.20925925925925926" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/list_fragment.xml" value="0.18518518518518517" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/player_fragment.xml" value="0.18518518518518517" />
       </map>
     </option>
   </component>

@@ -2,9 +2,13 @@ package com.a4nt0n64r.audiobooks
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import com.a4nt0n64r.audiobooks.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var navController: NavController
 
     private var nullableBinding: ActivityMainBinding? = null
     private val binding get() = nullableBinding!!
@@ -14,5 +18,6 @@ class MainActivity : AppCompatActivity() {
         nullableBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         APP_ACTIVITY = this
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
     }
 }

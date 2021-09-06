@@ -1,8 +1,7 @@
 package com.a4nt0n64r.audiobooks.di.components
 
-import androidx.fragment.app.ListFragment
-import com.a4nt0n64r.audiobooks.di.modules.NetworkModule
 import com.a4nt0n64r.audiobooks.di.dependencies.DataManager
+import com.a4nt0n64r.audiobooks.di.modules.NetworkModule
 import com.a4nt0n64r.audiobooks.repository.api.ApiService
 import com.a4nt0n64r.audiobooks.repository.api.NetworkRepository
 import com.a4nt0n64r.audiobooks.repository.realm.DatabaseImpl
@@ -33,5 +32,5 @@ interface NetworkComponent {
 
     fun provideDatabase(): DatabaseImpl
 
-    fun inject(fragment: ListFragment)
+    fun inject(fragment: com.a4nt0n64r.audiobooks.screens.list.ListFragment)
 }

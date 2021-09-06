@@ -17,11 +17,13 @@ class DataManager @Inject constructor(
 
     suspend fun getBooks(): List<BookUI> {
         return if (database.getBooks().isNullOrEmpty()) {
-            networkRepository.getBooks().toBooksUI()
+            val books = networkRepository.getBooks().toBooksUI()
+            saveBooks(books)
+            books
         } else database.getBooks().map { it.toBookUI() }
     }
 
-    suspend fun saveBooks(bookList: List<BookUI>) {
+    private suspend fun saveBooks(bookList: List<BookUI>) {
         database.saveListOfBooks(bookList.map { it.toBookDB() })
     }
 }
