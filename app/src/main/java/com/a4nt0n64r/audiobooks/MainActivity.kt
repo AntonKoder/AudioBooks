@@ -1,7 +1,10 @@
 package com.a4nt0n64r.audiobooks
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.a4nt0n64r.audiobooks.databinding.ActivityMainBinding
 import com.a4nt0n64r.audiobooks.screens.list.ListFragment
 import com.a4nt0n64r.audiobooks.screens.player.PlayerFragment
@@ -16,7 +19,40 @@ class MainActivity : AppCompatActivity() {
         nullableBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         APP_ACTIVITY = this
-        navigate(LIST_FRAGMENT, null)
+        checkPermissions()
+    }
+
+    private fun checkPermissions() {
+        val permissions = arrayOf(Manifest.permission.INTERNET)
+        ActivityCompat.requestPermissions(
+            this,
+            permissions,
+            DUMMY_CODE
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            1 -> {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.isNotEmpty() &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED
+                ) {
+                    // permission was granted, do your work....
+                    navigate(LIST_FRAGMENT, null)
+                } else {
+                    // permission denied
+                    // Disable the functionality that depends on this permission.
+                    finish()
+                }
+                return
+            }
+        }
     }
 
     fun navigate(destination: String, bundle: Bundle?) {

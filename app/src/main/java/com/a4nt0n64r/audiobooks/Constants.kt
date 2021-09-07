@@ -5,3 +5,4 @@ const val BOOK = "BOOK"
 const val LIST_FRAGMENT = "LIST_FRAGMENT"
 const val PLAYER_FRAGMENT = "PLAYER_FRAGMENT"
 const val BACKSTACK = "BACKSTACK"
+const val DUMMY_CODE = 1
