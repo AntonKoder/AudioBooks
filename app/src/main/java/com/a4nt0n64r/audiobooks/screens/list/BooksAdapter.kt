@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.a4nt0n64r.audiobooks.BuildConfig
 import com.a4nt0n64r.audiobooks.R
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
+import com.bumptech.glide.Glide
 
 class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
 
@@ -33,7 +35,9 @@ class BooksAdapter : RecyclerView.Adapter<BooksAdapter.BookViewHolder>() {
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         holder.bookName.text = listCategory[position].name
         holder.bookAuthor.text = listCategory[position].author
-//        holder.bookImage.text = listCategory[position].name  загрузить картинку через глайд
+        Glide.with(holder.bookImage.context)
+            .load(BuildConfig.API_URL + "static/" + listCategory[position].imageUrl)
+            .into(holder.bookImage)
     }
 
     override fun getItemCount(): Int {
