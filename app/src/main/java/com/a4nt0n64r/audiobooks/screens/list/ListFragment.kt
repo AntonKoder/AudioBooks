@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.a4nt0n64r.audiobooks.BOOK
-import com.a4nt0n64r.audiobooks.databinding.ListFragmentBinding
+import com.a4nt0n64r.audiobooks.databinding.FragmentListBinding
 import com.a4nt0n64r.audiobooks.di.components.DaggerNetworkComponent
 import com.a4nt0n64r.audiobooks.di.components.NetworkComponent
 import com.a4nt0n64r.audiobooks.di.dependencies.DataManager
@@ -21,7 +21,7 @@ class ListFragment : Fragment() {
     @Inject
     lateinit var dataManager: DataManager
 
-    private var nullableBinding: ListFragmentBinding? = null
+    private var nullableBinding: FragmentListBinding? = null
     private val binding get() = nullableBinding!!
 
     private lateinit var viewModel: ListViewModel
@@ -32,7 +32,7 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        nullableBinding = ListFragmentBinding.inflate(layoutInflater, container, false)
+        nullableBinding = FragmentListBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
