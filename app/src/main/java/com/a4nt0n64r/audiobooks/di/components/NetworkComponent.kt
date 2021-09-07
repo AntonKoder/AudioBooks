@@ -5,6 +5,7 @@ import com.a4nt0n64r.audiobooks.di.modules.NetworkModule
 import com.a4nt0n64r.audiobooks.repository.api.ApiService
 import com.a4nt0n64r.audiobooks.repository.api.NetworkRepository
 import com.a4nt0n64r.audiobooks.repository.realm.DatabaseImpl
+import com.a4nt0n64r.audiobooks.screens.list.ListViewModel
 import com.google.gson.Gson
 import dagger.Component
 import okhttp3.OkHttpClient
@@ -32,5 +33,5 @@ interface NetworkComponent {
 
     fun provideDatabase(): DatabaseImpl
 
-    fun inject(fragment: com.a4nt0n64r.audiobooks.screens.list.ListFragment)
+    fun inject(viewModel: ListViewModel)
 }

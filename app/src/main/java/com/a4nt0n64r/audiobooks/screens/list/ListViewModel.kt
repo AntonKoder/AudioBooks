@@ -3,11 +3,26 @@ package com.a4nt0n64r.audiobooks.screens.list
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import com.a4nt0n64r.audiobooks.di.components.DaggerNetworkComponent
+import com.a4nt0n64r.audiobooks.di.components.NetworkComponent
 import com.a4nt0n64r.audiobooks.di.dependencies.DataManager
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
+import javax.inject.Inject
 
-class ListViewModel(private val dataManager: DataManager) : ViewModel() {
+class ListViewModel() : ViewModel() {
+
+    @Inject
+    lateinit var dataManager: DataManager
+
+    init {
+        val networkComponent = getNetworkComponent()
+        networkComponent.inject(this)
+    }
+
+    private fun getNetworkComponent(): NetworkComponent {
+        return DaggerNetworkComponent.builder()
+            .build()
+    }
 
     private val _bookList = MutableLiveData<List<BookUI>>()
     val bookList: LiveData<List<BookUI>> get() = _bookList
@@ -15,11 +30,4 @@ class ListViewModel(private val dataManager: DataManager) : ViewModel() {
     fun getBooks() {
         dataManager.getBooks2()
     }
-}
-
-class ListViewModelFactory(
-    private val dataManager: DataManager
-) : ViewModelProvider.NewInstanceFactory() {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        ListViewModel(dataManager) as T
 }
