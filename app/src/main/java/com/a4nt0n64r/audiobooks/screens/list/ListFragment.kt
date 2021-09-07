@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.a4nt0n64r.audiobooks.APP_ACTIVITY
 import com.a4nt0n64r.audiobooks.BOOK
-import com.a4nt0n64r.audiobooks.R
 import com.a4nt0n64r.audiobooks.databinding.ListFragmentBinding
 import com.a4nt0n64r.audiobooks.di.components.DaggerNetworkComponent
 import com.a4nt0n64r.audiobooks.di.components.NetworkComponent
