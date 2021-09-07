@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            1 -> {
+            DUMMY_CODE -> {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty() &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED
