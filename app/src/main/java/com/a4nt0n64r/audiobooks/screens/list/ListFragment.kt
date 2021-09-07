@@ -62,7 +62,7 @@ class ListFragment : Fragment() {
                 object : BooksRecyclerViewItemClickListener.OnItemClickListener {
 
                     override fun onItemClick(view: View, position: Int) {
-                        if (viewModel.bookList.value?.get(position)!!.isFree){
+                        if (viewModel.bookList.value?.get(position)!!.isFree) {
                             bookClick(
                                 position
                             )

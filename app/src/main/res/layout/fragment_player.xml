@@ -7,7 +7,7 @@
     tools:context=".screens.player.PlayerFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -21,7 +21,7 @@
         tools:text="How the Rhinoceros got his skin" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/book_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@id/author"
         tools:text="J. R. Kipling" />
 
     <androidx.cardview.widget.CardView
@@ -40,9 +40,10 @@
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@id/book_name">
 
         <ImageView
+            android:id="@+id/book_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:src="@drawable/ic_launcher_background" />
