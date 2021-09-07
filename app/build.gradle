@@ -15,7 +15,7 @@ android {
         viewBinding.enabled = true
         multiDexEnabled true
         applicationId "com.a4nt0n64r.audiobooks"
-        minSdk 21
+        minSdk 19
         targetSdk 31
         versionCode 1
         versionName "1.0"
