@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.a4nt0n64r.audiobooks.APP_ACTIVITY
 import com.a4nt0n64r.audiobooks.BOOK
+import com.a4nt0n64r.audiobooks.PLAYER_FRAGMENT
 import com.a4nt0n64r.audiobooks.databinding.FragmentListBinding
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
 
@@ -71,5 +73,6 @@ class ListFragment : Fragment() {
     fun bookClick(position: Int) {
         val bundle = Bundle()
         bundle.putSerializable(BOOK, viewModel.bookList.value?.get(position))
+        APP_ACTIVITY.navigate(PLAYER_FRAGMENT, bundle)
     }
 }

@@ -7,5 +7,6 @@ data class BookUI(
     val author: String,
     val imageUrl: String,
     val audioUrl: String,
-    val duration: Int
+    val duration: Int,
+    val isFree: Boolean
 ) : Serializable

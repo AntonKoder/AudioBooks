@@ -10,13 +10,35 @@ fun ApiResponse.toBooksUI(): List<BookUI> {
 }
 
 fun BookNM.toBookUI(): BookUI {
-    return BookUI(this.title, this.author, this.imageUrl, this.audiofileUrl, this.audioDuration)
+    return BookUI(
+        this.title,
+        this.author,
+        this.imageUrl,
+        this.audiofileUrl,
+        this.audioDuration,
+        this.isFree
+    )
 }
 
 fun BookDB.toBookUI(): BookUI {
-    return BookUI(this.name!!, this.author!!, this.imageUrl!!, this.audioUrl!!, this.duration!!)
+    return BookUI(
+        this.name!!,
+        this.author!!,
+        this.imageUrl!!,
+        this.audioUrl!!,
+        this.duration!!,
+        this.isFree!!
+    )
 }
 
 fun BookUI.toBookDB(): BookDB {
-    return BookDB(null, this.name, this.author, this.imageUrl, this.audioUrl, this.duration)
+    return BookDB(
+        null,
+        this.name,
+        this.author,
+        this.imageUrl,
+        this.audioUrl,
+        this.duration,
+        this.isFree
+    )
 }
