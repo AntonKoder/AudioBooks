@@ -8,7 +8,13 @@ import io.realm.RealmResults
 class DatabaseImpl(private val realm: Realm) : DatabaseFunctions {
 
     override suspend fun getBooks(): RealmResults<BookDB> {
-        val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAll()
+        val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAllAsync()
+        Log.d("TAG", "Get this: $results")
+        return results
+    }
+
+    override fun getBooks2(): RealmResults<BookDB> {
+        val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAllAsync()
         Log.d("TAG", "Get this: $results")
         return results
     }

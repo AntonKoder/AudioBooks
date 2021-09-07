@@ -59,7 +59,7 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
         setUpRVListener()
-        viewModel.booksList.observe(viewLifecycleOwner, observerOnList)
+        viewModel.bookList.observe(viewLifecycleOwner, observerOnList)
         viewModel.getBooks()
     }
 
@@ -92,10 +92,6 @@ class ListFragment : Fragment() {
 
     fun bookClick(position: Int) {
         val bundle = Bundle()
-        bundle.putSerializable(BOOK, viewModel.booksList.value?.get(position))
-        APP_ACTIVITY.navController.navigate(
-            R.id.action_listFragment_to_playerFragment,
-            bundle
-        )
+        bundle.putSerializable(BOOK, viewModel.bookList.value?.get(position))
     }
 }

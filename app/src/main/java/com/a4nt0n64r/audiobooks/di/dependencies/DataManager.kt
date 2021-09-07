@@ -23,6 +23,8 @@ class DataManager @Inject constructor(
         } else database.getBooks().map { it.toBookUI() }
     }
 
+    fun getBooks2(): List<BookUI> = database.getBooks2().map { it.toBookUI() }
+
     private suspend fun saveBooks(bookList: List<BookUI>) {
         database.saveListOfBooks(bookList.map { it.toBookDB() })
     }
