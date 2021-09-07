@@ -13,12 +13,6 @@ class DatabaseImpl(private val realm: Realm) : DatabaseFunctions {
         return results
     }
 
-    override fun getBooks2(): RealmResults<BookDB> {
-        val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAllAsync()
-        Log.d("TAG", "Get this: $results")
-        return results
-    }
-
     override suspend fun saveBook(book: BookDB) {
         try {
             realm.beginTransaction()
@@ -44,5 +38,40 @@ class DatabaseImpl(private val realm: Realm) : DatabaseFunctions {
 
     override suspend fun saveListOfBooks(list: List<BookDB>) {
         list.forEach { book -> saveBook(book) }
+    }
+
+    // sync functions TODO("Remove after coroutines work")
+
+    override fun getBooks2(): RealmResults<BookDB> {
+        val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAllAsync()
+        Log.d("TAG", "Get this: $results")
+        return results
+    }
+
+    override fun saveBook2(book: BookDB) {
+        try {
+            realm.beginTransaction()
+            // Auto Increment ID
+            val currentIdNumber: Number? = realm.where(BookDB::class.java).max("id")
+            val nextId = (currentIdNumber?.toInt()?.plus(1)) ?: 1
+            book.id = nextId
+
+            realm.copyToRealmOrUpdate(book)
+            realm.commitTransaction()
+
+            Log.d("TAG", "Book added successfully!")
+        } catch (e: Exception) {
+            Log.d("TAG", "Fail $e")
+        }
+    }
+
+    override fun saveListOfBooks2(list: List<BookDB>) {
+        list.forEach { book -> saveBook2(book) }
+    }
+
+    override fun deleteBooks2() {
+        realm.beginTransaction()
+        realm.delete(BookDB::class.java)
+        realm.commitTransaction()
     }
 }

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("book")
+    @GET("/api/v1/book")
     fun getBooks(): Call<ApiResponse>
 }
