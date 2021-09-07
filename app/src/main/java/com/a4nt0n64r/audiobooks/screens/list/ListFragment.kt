@@ -37,13 +37,13 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRecyclerView()
-        setUpRVListener()
+        setupRecyclerView()
+        setupRVListener()
         viewModel.bookList.observe(viewLifecycleOwner, observerOnList)
         viewModel.getBooks()
     }
 
-    private fun setUpRecyclerView() {
+    private fun setupRecyclerView() {
         val adapter = BooksAdapter()
         val recyclerView = binding.listOfBooks
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -54,7 +54,7 @@ class ListFragment : Fragment() {
         }
     }
 
-    private fun setUpRVListener() {
+    private fun setupRVListener() {
         binding.listOfBooks.addOnItemTouchListener(
             BooksRecyclerViewItemClickListener(
                 requireActivity(),
@@ -62,9 +62,11 @@ class ListFragment : Fragment() {
                 object : BooksRecyclerViewItemClickListener.OnItemClickListener {
 
                     override fun onItemClick(view: View, position: Int) {
-                        bookClick(
-                            position
-                        )
+                        if (viewModel.bookList.value?.get(position)!!.isFree){
+                            bookClick(
+                                position
+                            )
+                        }
                     }
                 })
         )
