@@ -1,7 +1,7 @@
 package com.a4nt0n64r.audiobooks.repository.api
 
-import com.a4nt0n64r.audiobooks.models.network.ApiResponse
+import com.a4nt0n64r.audiobooks.utils.MyCallBack
 
 interface NetworkRepository {
-    suspend fun getBooks(): ApiResponse
+    fun getBooks(myCallBack: MyCallBack)
 }

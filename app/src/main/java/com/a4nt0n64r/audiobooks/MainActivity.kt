@@ -8,6 +8,11 @@ import androidx.core.app.ActivityCompat
 import com.a4nt0n64r.audiobooks.databinding.ActivityMainBinding
 import com.a4nt0n64r.audiobooks.screens.list.ListFragment
 import com.a4nt0n64r.audiobooks.screens.player.PlayerFragment
+import com.a4nt0n64r.audiobooks.utils.APP_ACTIVITY
+import com.a4nt0n64r.audiobooks.utils.BACKSTACK
+import com.a4nt0n64r.audiobooks.utils.DUMMY_CODE
+import com.a4nt0n64r.audiobooks.utils.LIST_FRAGMENT
+import com.a4nt0n64r.audiobooks.utils.PLAYER_FRAGMENT
 
 class MainActivity : AppCompatActivity() {
 

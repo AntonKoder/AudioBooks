@@ -13,5 +13,4 @@ class PlayerViewModel : ViewModel() {
     fun setBook(book: BookUI) {
         _book.value = book
     }
-
 }

@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import com.a4nt0n64r.audiobooks.BOOK
 import com.a4nt0n64r.audiobooks.BuildConfig
 import com.a4nt0n64r.audiobooks.databinding.FragmentPlayerBinding
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
+import com.a4nt0n64r.audiobooks.utils.BOOK
 import com.bumptech.glide.Glide
 
 class PlayerFragment : Fragment() {

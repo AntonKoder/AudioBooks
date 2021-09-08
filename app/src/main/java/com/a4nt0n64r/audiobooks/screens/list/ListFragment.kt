@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.a4nt0n64r.audiobooks.APP_ACTIVITY
-import com.a4nt0n64r.audiobooks.BOOK
-import com.a4nt0n64r.audiobooks.PLAYER_FRAGMENT
 import com.a4nt0n64r.audiobooks.databinding.FragmentListBinding
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
+import com.a4nt0n64r.audiobooks.utils.APP_ACTIVITY
+import com.a4nt0n64r.audiobooks.utils.BOOK
+import com.a4nt0n64r.audiobooks.utils.PLAYER_FRAGMENT
 
 class ListFragment : Fragment() {
 
