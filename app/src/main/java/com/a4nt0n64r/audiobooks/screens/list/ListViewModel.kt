@@ -35,10 +35,11 @@ class ListViewModel() : ViewModel() {
         viewModelScope.async {
             dataManager.getBooks(object : MyCallBack {
                 override fun onError(message: String) {
-                    Log.d("ASD", message)
+                    Log.d("__ERROR", "in ViewModel $message")
                 }
 
                 override fun onSuccess(value: List<BookUI>) {
+                    Log.d("__SUCCESS", "in ViewModel")
                     _bookList.postValue(value)
                 }
             })

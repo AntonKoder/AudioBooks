@@ -9,7 +9,7 @@ import io.realm.RealmResults
 
 class DatabaseImpl(private val realm: Realm) : DatabaseFunctions {
 
-    override suspend fun saveBook(book: BookDB) {
+    override fun saveBook(book: BookDB) {
         try {
             realm.beginTransaction()
             // Auto Increment ID
@@ -32,15 +32,17 @@ class DatabaseImpl(private val realm: Realm) : DatabaseFunctions {
         realm.commitTransaction()
     }
 
-    override suspend fun saveListOfBooks(list: List<BookDB>) {
+    override fun saveListOfBooks(list: List<BookDB>) {
         list.forEach { book -> saveBook(book) }
     }
 
     override suspend fun getBooks(myCallBack: MyCallBack) {
         val results: RealmResults<BookDB> = realm.where<BookDB>(BookDB::class.java).findAll()
         if (results.isEmpty()) {
+            Log.d("__ERROR", "Empty DB")
             myCallBack.onError("Error in db")
         } else {
+            Log.d("__SUCCESS", "all ok in get books")
             myCallBack.onSuccess(results.map { it.toBookUI() })
         }
         Log.d("TAG", "Get this: $results")
