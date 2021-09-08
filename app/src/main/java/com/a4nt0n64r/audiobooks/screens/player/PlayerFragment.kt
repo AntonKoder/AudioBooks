@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.a4nt0n64r.audiobooks.BuildConfig
+import com.a4nt0n64r.audiobooks.R
 import com.a4nt0n64r.audiobooks.databinding.FragmentPlayerBinding
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
 import com.a4nt0n64r.audiobooks.utils.BOOK
@@ -43,5 +44,27 @@ class PlayerFragment : Fragment() {
                 .into(binding.bookImage)
         }
         viewModel.book.observe(this, bookObserver)
+
+        val isPlayingObserver: Observer<Boolean> = Observer {
+            if (!it) {
+                binding.playPause.setImageResource(R.drawable.play_arrow_40dp)
+            } else {
+                binding.playPause.setImageResource(R.drawable.pause_40dp)
+            }
+        }
+        viewModel.isPlaying.observe(this, isPlayingObserver)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.playPause.setOnClickListener {
+            if (viewModel.isPlaying.value != null) {
+                if (!viewModel.isPlaying.value!!) {
+                    viewModel.playBook()
+                } else {
+                    viewModel.stopPlayingBook()
+                }
+            }
+        }
     }
 }

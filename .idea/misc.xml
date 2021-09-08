@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/fast_forward_40dp.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/fast_rewind_40dp.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/next_40dp.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/pause_40dp.xml" value="0.22870370370370371" />
+        <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/play_arrow_40dp.xml" value="0.22870370370370371" />
         <entry key="..\:/fr_2/AudioBooks/app/src/main/res/drawable/previous_40dp.xml" value="0.22777777777777777" />
         <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/activity_main.xml" value="0.15462962962962962" />
         <entry key="..\:/fr_2/AudioBooks/app/src/main/res/layout/book_item.xml" value="0.20925925925925926" />

@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkPermissions() {
-        val permissions = arrayOf(Manifest.permission.INTERNET)
+        val permissions = arrayOf(
+            Manifest.permission.INTERNET
+        )
         ActivityCompat.requestPermissions(
             this,
             permissions,
