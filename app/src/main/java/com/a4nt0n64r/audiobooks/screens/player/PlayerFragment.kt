@@ -32,19 +32,31 @@ class PlayerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = PlayerViewModel()
+        initViewModelParameters()
+        initBookObserver()
+        initPlayPauseObserver()
+    }
+
+    private fun initViewModelParameters() {
         val bundle = this.arguments
         if (bundle != null) {
             viewModel.setBook(bundle.getSerializable(BOOK) as BookUI)
         }
+    }
+
+    private fun initBookObserver() {
         val bookObserver: Observer<BookUI> = Observer {
             binding.author.text = it.author
             binding.bookName.text = it.name
             Glide.with(binding.bookImage.context)
                 .load(BuildConfig.API_URL + "static/" + it.imageUrl)
                 .into(binding.bookImage)
+            binding.progress.max = it.duration
         }
         viewModel.book.observe(this, bookObserver)
+    }
 
+    private fun initPlayPauseObserver() {
         val isPlayingObserver: Observer<Boolean> = Observer {
             if (!it) {
                 binding.playPause.setImageResource(R.drawable.play_arrow_40dp)
@@ -60,11 +72,17 @@ class PlayerFragment : Fragment() {
         binding.playPause.setOnClickListener {
             if (viewModel.isPlaying.value != null) {
                 if (!viewModel.isPlaying.value!!) {
-                    viewModel.playBook()
+//                    playBook()
                 } else {
-                    viewModel.stopPlayingBook()
+//                    stopBook()
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        val bundle = Bundle()
+        bundle.putSerializable(BOOK, viewModel.book.value)
+        super.onDestroy()
     }
 }

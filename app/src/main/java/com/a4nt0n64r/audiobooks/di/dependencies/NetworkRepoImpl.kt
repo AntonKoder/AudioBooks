@@ -3,8 +3,8 @@ package com.a4nt0n64r.audiobooks.di.dependencies
 import com.a4nt0n64r.audiobooks.models.network.ApiResponse
 import com.a4nt0n64r.audiobooks.models.toBookUI
 import com.a4nt0n64r.audiobooks.repository.api.ApiService
+import com.a4nt0n64r.audiobooks.repository.api.MyCallBack
 import com.a4nt0n64r.audiobooks.repository.api.NetworkRepository
-import com.a4nt0n64r.audiobooks.utils.MyCallBack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

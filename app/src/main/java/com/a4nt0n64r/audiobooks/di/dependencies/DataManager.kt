@@ -3,11 +3,9 @@ package com.a4nt0n64r.audiobooks.di.dependencies
 import android.util.Log
 import com.a4nt0n64r.audiobooks.models.toBookDB
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
+import com.a4nt0n64r.audiobooks.repository.api.MyCallBack
 import com.a4nt0n64r.audiobooks.repository.api.NetworkRepository
 import com.a4nt0n64r.audiobooks.repository.realm.DatabaseFunctions
-import com.a4nt0n64r.audiobooks.utils.MyCallBack
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,7 +20,7 @@ class DataManager @Inject constructor(
             override fun onError(message: String) {
                 Log.d("__ERROR", "Error in callback in db")
 
-                val saveAction = object :MyCallBack{
+                val saveAction = object : MyCallBack {
                     override fun onSuccess(value: List<BookUI>) {
                         saveBooks(value)
                         action.onSuccess(value)

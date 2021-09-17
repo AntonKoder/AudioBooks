@@ -50,7 +50,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ProgressBar
+    <SeekBar
         android:id="@+id/progress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"

@@ -9,7 +9,7 @@ import com.a4nt0n64r.audiobooks.di.components.DaggerNetworkComponent
 import com.a4nt0n64r.audiobooks.di.components.NetworkComponent
 import com.a4nt0n64r.audiobooks.di.dependencies.DataManager
 import com.a4nt0n64r.audiobooks.models.ui.BookUI
-import com.a4nt0n64r.audiobooks.utils.MyCallBack
+import com.a4nt0n64r.audiobooks.repository.api.MyCallBack
 import kotlinx.coroutines.async
 import javax.inject.Inject
 

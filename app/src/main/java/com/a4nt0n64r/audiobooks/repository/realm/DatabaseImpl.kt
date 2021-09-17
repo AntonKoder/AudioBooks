@@ -3,7 +3,7 @@ package com.a4nt0n64r.audiobooks.repository.realm
 import android.util.Log
 import com.a4nt0n64r.audiobooks.models.domain.BookDB
 import com.a4nt0n64r.audiobooks.models.toBookUI
-import com.a4nt0n64r.audiobooks.utils.MyCallBack
+import com.a4nt0n64r.audiobooks.repository.api.MyCallBack
 import io.realm.Realm
 import io.realm.RealmResults
 
