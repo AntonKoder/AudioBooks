@@ -1,6 +1,7 @@
 package com.a4nt0n64r.audiobooks.screens.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,19 +39,21 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
-        setupRVListener()
+//        setupRVListener()
         viewModel.bookList.observe(viewLifecycleOwner, observerOnList)
         viewModel.getBooks()
     }
 
     private fun setupRecyclerView() {
-        val adapter = BooksAdapter()
+//        val adapter = BooksAdapter()
+        val adapter = MyListAdapter { bookClick() }
         val recyclerView = binding.listOfBooks
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         observerOnList = Observer {
-            val list = it
-            adapter.setData(list)
+//            val list = it
+//            adapter.setData(list)
+            adapter.submitList(it)
         }
     }
 
@@ -70,6 +73,10 @@ class ListFragment : Fragment() {
                     }
                 })
         )
+    }
+
+    private fun bookClick() {
+        Log.d("bla", "call lambda from frag !")
     }
 
     fun bookClick(position: Int) {
